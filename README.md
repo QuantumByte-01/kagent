@@ -110,7 +110,6 @@ docker compose up --build
 
 **Backend health** → ``http://localhost:8000/api/health``
 
-The backend image installs CPU-only PyTorch wheels so it can build on machines without GPUs.
 
 ### Install Docker on Ubuntu
 
