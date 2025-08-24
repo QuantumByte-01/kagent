@@ -103,12 +103,42 @@ The frontend will communicate with the backend at port 8000.
 To build and start both the backend and frontend in containers:
 
 ```
-docker-compose up --build
+docker compose up --build
 ```
 
 **Frontend** →``http://localhost:3000``
 
 **Backend health** → ``http://localhost:8000/api/health``
+
+### Install Docker on Ubuntu
+
+```bash
+sudo apt-get update
+sudo apt-get install -y docker.io docker-compose
+sudo systemctl enable --now docker
+```
+
+To run Docker without `sudo`, add your user to the `docker` group:
+
+```bash
+sudo usermod -aG docker $USER
+```
+Log out and back in for the group change to take effect.
+
+### Deploy on a GCP VM
+
+1. Copy `.env` and `docker-compose.yml` to the VM.
+2. Build and start the containers in detached mode:
+
+```bash
+docker compose up -d --build
+```
+
+3. Verify the services:
+
+```bash
+docker compose ps
+```
 
 # Scraping & Data Preprocessing for KnowledgeSpace Datasets
 
