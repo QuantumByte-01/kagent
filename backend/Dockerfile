@@ -13,7 +13,6 @@ RUN pip install --no-cache-dir uv
 # Copy project dependency descriptors
 COPY pyproject.toml uv.lock .env ./
 
-
 RUN PIP_EXTRA_INDEX_URL=https://download.pytorch.org/whl/cpu \
     UV_PIP_EXTRA_INDEX_URL=https://download.pytorch.org/whl/cpu \
     UV_HTTP_TIMEOUT=300 \
@@ -24,7 +23,6 @@ RUN PIP_EXTRA_INDEX_URL=https://download.pytorch.org/whl/cpu \
 COPY backend/ ./
 
 EXPOSE 8000
-
 
 # Run the backend API
 CMD ["uv", "run", "main.py", "--host", "0.0.0.0", "--port", "8000"]
